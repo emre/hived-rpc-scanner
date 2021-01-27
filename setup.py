@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name='hived_rpc_scanner',
-    version='0.0.2',
+    version='0.0.6',
     packages=["hived_rpc_scanner",],
     url='https://github.com/emre/hived-rpc-scanner',
     license='MIT',
@@ -14,5 +14,5 @@ setup(
             'hived_rpc_scanner = hived_rpc_scanner.runner:runner',
         ],
     },
-    install_requires=["prettytable==2.0.0", "httpx"]
+    install_requires=["prettytable==2.0.0", "httpx", "colored"]
 )

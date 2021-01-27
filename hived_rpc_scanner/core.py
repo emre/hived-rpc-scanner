@@ -87,7 +87,8 @@ async def runner(nodes):
 
 def main(nodes):
     start_time = time.time()
-    results, total_requests = asyncio.run(runner(nodes))
+    loop = asyncio.get_event_loop()
+    results, total_requests  =loop.run_until_complete(runner(nodes))
     end_time = time.time()
 
     print(f" > {total_requests} "

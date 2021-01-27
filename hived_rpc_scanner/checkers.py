@@ -6,8 +6,8 @@ fields = ['call', 'params', 'validator', 'validator_params']
 check_definition = namedtuple(
     'CheckDefinition',
     fields,
-    defaults=(None,) * len(fields)
 )
+check_definition.__new__.__defaults__ = (None,) * len(check_definition._fields)
 
 CHECK_DEFINITIONS = [
     # transaction_status_api

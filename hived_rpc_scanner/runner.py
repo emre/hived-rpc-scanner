@@ -1,5 +1,5 @@
 from prettytable import PrettyTable
-
+from colored import fg, bg, attr
 from .core import main
 
 import argparse
@@ -8,6 +8,10 @@ default_nodes = [
     "https://hived.emre.sh",
     "https://api.hive.blog",
 ]
+
+ok_color = bg('green') + fg('white')
+nok_color = bg('red') + fg('white')
+reset = attr('reset')
 
 
 def runner():
@@ -29,7 +33,7 @@ def runner():
                         [f"[{i}]",
                          scan_result["node"],
                          sub_call,
-                         "✅" if scan_status else "❌",
+                         ok_color + "OK" + reset if scan_status else nok_color + "NOK" + reset,
                          int(scan_result["time_spent"] * 1e4),
                          scan_result.get("error", "-")]
                     )
