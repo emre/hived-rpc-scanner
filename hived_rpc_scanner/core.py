@@ -79,8 +79,10 @@ async def runner(nodes):
                     results[api_type][definition.call][status] = []
 
                 results[api_type][definition.call][status].append(result)
-            results[api_type][definition.call][status].sort(
-                key=lambda x: x["time_spent"])
+            for _status in [True, False]:
+                if _status in results[api_type][definition.call]:
+                    results[api_type][definition.call][_status].sort(
+                        key=lambda x: x["time_spent"])
 
     return results, total_requests
 

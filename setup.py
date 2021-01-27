@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name='hived_rpc_scanner',
-    version='0.0.6',
+    version='0.0.8',
     packages=["hived_rpc_scanner",],
     url='https://github.com/emre/hived-rpc-scanner',
     license='MIT',
