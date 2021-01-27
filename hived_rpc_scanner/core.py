@@ -48,6 +48,7 @@ async def runner(nodes):
             for node in nodes:
                 result = {"node": node}
                 start_time = time.time()
+                status = None
                 try:
                     status, response = await rpc_request(
                         client, node, definition.call,
