@@ -2,7 +2,8 @@
 
 A CLI tool to check the status of Hive RPC nodes by testing certain endpoints.
 
-<center><img src="https://i.imgur.com/0NWDpWz.png"></center>
+
+![hived_rpc_scanner.gif](https://images.hive.blog/DQmTvVNmWoGUjdvd4kWbwa8mcTpafvjtaK5BbfMG51Svi7m/hived_rpc_scanner.gif)
 
 # Installation
 
