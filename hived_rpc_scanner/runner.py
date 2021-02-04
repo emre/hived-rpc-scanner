@@ -18,7 +18,7 @@ def runner():
     parser = argparse.ArgumentParser()
     parser.add_argument('--nodes', nargs='+', )
     arguments = parser.parse_args()
-    resp = main(nodes=arguments.nodes or default_nodes)
+    resp, total_requests, overall_time_spent = main(nodes=arguments.nodes or default_nodes)
 
     for api_type, call in resp.items():
         table = PrettyTable()
@@ -39,3 +39,4 @@ def runner():
                     )
                     i += 1
         print(table.get_string(title=f"{api_type}"))
+    print(f" > {total_requests} requests sent in {overall_time_spent} seconds.")
