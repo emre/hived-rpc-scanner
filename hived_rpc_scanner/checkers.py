@@ -91,12 +91,6 @@ CHECK_DEFINITIONS = [
         None,
     ),
     check_definition(
-        "condenser_api.get_comment_discussions_by_payout",
-        [{"tag": "hive", "limit": 1}],
-        validators.should_return_at_least_one_element,
-        None,
-    ),
-    check_definition(
         "condenser_api.get_config",
         [],
         validators.should_return_a_dictionary,
@@ -109,29 +103,11 @@ CHECK_DEFINITIONS = [
         None,
     ),
     check_definition(
-        "tags_api.get_content_replies",
-        {"author": "emrebeyler", "permlink": "httpx"},
-        validators.should_return_at_least_one_element,
-        None,
-    ),
-    check_definition(
-        "tags_api.get_comment_discussions_by_payout",
-        {"tag": "photography", "limit": 1, "truncate_body": 1},
-        validators.should_return_at_least_one_element,
-        None,
-    ),
-    check_definition(
         "tags_api.get_discussion",
         {"author": "emrebeyler", "permlink": "httpx"},
         validators.should_return_a_dictionary,
         None,
     ),
-    # check_definition(
-    #     "tags_api.get_trending_tags",
-    #     {"start_tag": "hive", "limit": 1},
-    #     validators.should_return_at_least_one_element,
-    #     None,
-    # ),
     check_definition(
         "block_api.get_block",
         {"block_num": 8675309},
@@ -209,5 +185,35 @@ CHECK_DEFINITIONS = [
         {"id": "2bd270905d3d70baf145b7321b6d55fb923abb2e"},
         lambda x: x.get("result").get("block_num") == 8675309,
         None,
-    )
+    ),
+    # jsonrpc api
+    check_definition(
+        "jsonrpc.get_methods",
+        {},
+        validators.should_return_at_least_one_element,
+        None,
+    ),
+    # market history api
+    check_definition(
+        "market_history_api.get_market_history_buckets",
+        {},
+        validators.should_return_at_least_one_element,
+        ("result", "bucket_sizes", )
+    ),
+
+    # rc api
+    check_definition(
+        "rc_api.find_rc_accounts",
+        {"accounts": ["hiveio"]},
+        validators.should_return_at_least_one_element,
+        ("result", "rc_accounts", )
+    ),
+
+    # reputation api
+    check_definition(
+        "reputation_api.get_account_reputations",
+        {"account_lower_bound": "hiveio", "limit": 5},
+        validators.should_return_at_least_one_element,
+        ("result", "reputations"),
+    ),
 ]

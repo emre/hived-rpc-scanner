@@ -24,7 +24,6 @@ async def rpc_request(client, node, call, params, validator, validator_params):
         json=build_request_body(call, params)
     )
     response = response.json()
-
     status = True
     if 'error' in response:
         status = False

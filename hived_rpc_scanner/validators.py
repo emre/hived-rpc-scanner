@@ -10,7 +10,6 @@ def should_return_at_least_one_element(response, response_key="result", sub_resp
         return False
     if len(results) == 0:
         return False
-
     return True
 
 
