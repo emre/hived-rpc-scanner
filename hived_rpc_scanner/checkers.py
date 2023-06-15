@@ -141,6 +141,12 @@ CHECK_DEFINITIONS = [
         None,
     ),
     check_definition(
+        "bridge.get_profile",
+        {"account": "emrebeyler", "observer": ""},
+        validators.should_return_a_dictionary,
+        None,
+    ),
+    check_definition(
         "bridge.get_ranked_posts",
         {"sort": "trending", "tag":"hive","observer": "emrebeyler"},
         validators.should_return_at_least_one_element,
